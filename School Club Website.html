@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>School Club Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- STEP 1 - Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #3524a4;
+            font-family: Arial, sans-serif;
+            padding: 30px 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1ebf1e;
+        }
+
+        .club-card {
+            text-align: center;
+            border: 2px solid #e42c88;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #1b8da1;
+        }
+
+        .club-card h3 {
+            color: #b7b0af;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My School Clubs</h1>
+
+    <!-- STEP 2 - container keeps the layout neat and centred -->
+    <div class="container">
+
+        <!-- STEP 3 - row holds all the columns in one horizontal line -->
+        <div class="row">
+
+            <!-- STEP 4 - col-12: full width on phones
+                   col-md-6: half width on tablets
+                   col-lg-4: one-third on desktops -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="club-card">
+                    <h3>Coding Club</h3>
+                    <p>I learn how to create websites, games, and simple apps.</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="club-card">
+                    <h3>Football Club</h3>
+                    <p>I enjoy playing with the ball and exercising.</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-12 col-lg-4">
+                <div class="club-card">
+                    <h3>Cooking Club</h3>
+                    <p>I learn how to cook many things and i have fun.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- STEP 5 - Bootstrap JS script -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    </script>
+
+</body>
+
+</html>
