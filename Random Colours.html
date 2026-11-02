@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Random colours</title>
+    </head>
+    <body>
+        <button onclick="bad()">Click!</button>
+        <script>
+            function bad(){
+                var r = Math.floor(Math.random()*256);
+                var g = Math.floor(Math.random()*256);
+                var b = Math.floor(Math.random()*256);
+                var bgcolor = "rgb(" + r + "," + b + "," + g + ")";
+                document.body.style.background = bgcolor;
+            }
+        </script>
+    </body>
+</html>
