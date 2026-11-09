@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Digital Clock</title>
+        <style>
+            body {
+                background-color: rgb(138, 211, 12);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                font-family: 'Segoe UI';
+                overflow: hidden;
+            }
+
+            #MyClockDisplay {
+                color: rgb(175, 116, 34);
+                font-size: 60px;
+                font-weight: bold;
+                letter-spacing: 5px;
+                background: chocolate;
+                padding: 20px 40px;
+                border-radius: 15px;
+                border: 1px solid rgba(255,255,30, 0.05);
+                box-shadow: 0 0 30px blue,
+                      inset 0 0 15px rgb(100, 171, 239);
+                      text-shadow: 0 0 10px rgba(56, 206, 239, 0.6);
+
+            }
+
+            #MyClockDisplay:hover {
+                box-shadow: 0 0 40px rgba(23, 212, 254, 0.4),
+                      inset 0 0 25px burlywood;
+                      transform: scale(1.02);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="MyClockDisplay" onload="showTime()"></div>
+        <script>
+            function showTime() {
+                var date = new Date();
+                var h = date.getHours();
+                var m = date.getMinutes();
+                var s = date.getSeconds();
+                var session = "AM";
+
+                if (h > 12) {
+                    h = h - 12;
+                    session = "PM";
+                }
+
+                h = h < 10 ? "0" + h : h;
+                m = m < 10 ? "0" + m : m;
+                s = s < 10 ? "0" + s : s;
+
+                var time = h + ":" + m + ":" + s + " " + session;
+                document.getElementById("MyClockDisplay").innerText = time;
+                setTimeout(showTime, 1000);
+            }
+
+            showTime();
+        </script>
+    </body>
+</html>
