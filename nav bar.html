@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Navbar - Home</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial,  sans-serif;
+            }
+
+            .topnav {
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            .topnav a {
+                float: left;
+                color: #1affa3;
+                text-align: center;
+                padding: 14px 20px;
+                text-decoration: none;
+                font-size: 17px;
+                /* Challenge 1: Smooth color transition on hover/click */
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+            .topnav a.active {
+                background-color: #ffe066;
+                color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="topnav" id="navbar">
+            <a class="active" href="#home" data-name="Home">Home</a>
+            <a href="#about" data-name="About_Us">About_Us</a>
+            <a href="#gallery" data-name="Gallery">Gallery</a>
+            <a href="#contact" data-name="Contact_Us">Contact_Us</a>
+        </div>
+
+        <script>
+            const navLinks = document.querySelectorAll('.topnav a');
+
+            // Challenge 2: Function to switch the active tab
+            function activateTab(selectedLink) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                selectedLink.classList.add('active');
+
+                // Update page title & save choice in browser storage
+                const tabName = selectedLink.getAttribute('data-name');
+                document.title = "Navbar - " + tabName;
+                localStorage.setItem('activeNavTab', tabName);
+            }
+
+            // Challenge 3: Click event for every link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.prevetnDefault();
+                    activateTab(this);
+                });
+            });
+
+            // Challenge 4: Restore active tab after page refresh
+            window.addEventLister('DOMContentLoaded', () => {
+                const savedTab = localStorage.getItem('activeNavTab');
+                if (savedTab) {
+                    const matchingLink = document.querySelector(`.topnav a [data-name="${savedTab}"]`);
+                    if (matchingLink) activateTab(matchingLink);
+                }
+            });
+        </script>
+        
+    </body>
+</html>
